@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name fallasAppApp.directive:fInputSelector
+ * @name fallasApp.directive:fInputSelector
  * @description
  * # fInputSelector
  */
-angular.module('fallasAppApp')
+angular.module('fallasApp')
     .directive('fInputSelector', function ($compile) {
         return {
             template: '<div class="form-group">\n    <label for="select-model">Agregar elemento: </label>\n    <select id="select-model" class="form-control" ng-model="selectedElement"\n            ng-options="element.label for element in elements"\n            ng-change="selectElement()"></select>\n</div>',

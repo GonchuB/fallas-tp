@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name fallasAppApp.directive:fDateTimePick
+ * @name fallasApp.directive:fDateTimePick
  * @description
  * # fDateTimePick
  */
-angular.module('fallasAppApp')
+angular.module('fallasApp')
     .directive('fDateTimePick', function () {
         return {
             template: '<div class="form">\n    <div class="form-title">\n        {{title}}\n    </div>\n    <div class="form-group date-time">\n        <div class="input-group date">\n            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="date" is-open="opened"\n                   min-date="minDate" max-date="\'2015-06-22\'" datepicker-options="dateOptions"\n                   date-disabled="disabled(date, mode)" close-text="Close"/>\n    <span class="input-group-btn">\n        <button type="button" class="btn btn-default" ng-click="open($event)">\n            <i class="glyphicon glyphicon-calendar"></i>\n        </button>\n    </span>\n        </div>\n        <div class="input-group">\n            <timepicker ng-model="time"\n                        hour-step="hstep"\n                        minute-step="mstep"\n                        show-meridian="ismeridian">\n            </timepicker>\n        </div>\n    </div>\n</div>',

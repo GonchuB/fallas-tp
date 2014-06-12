@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name fallasAppApp.directive:fCheckbox
+ * @name fallasApp.directive:fCheckbox
  * @description
  * # fCheckbox
  */
-angular.module('fallasAppApp')
+angular.module('fallasApp')
     .directive('fCheckbox', function () {
         return {
             template: '<div class="form-group checkbox">\n    <label>\n        <input type="checkbox" ng-model="model"> {{title}}\n    </label>\n</div>',

@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name fallasAppApp
+ * @name fallasApp
  * @description
- * # fallasAppApp
+ * # fallasApp
  *
  * Main module of the application.
  */
 angular
-    .module('fallasAppApp', [
+    .module('fallasApp', [
         'ngAnimate',
         'ngRoute',
         'ui.bootstrap'
