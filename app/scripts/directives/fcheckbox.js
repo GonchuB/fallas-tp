@@ -9,14 +9,18 @@
 angular.module('fallasApp')
     .directive('fCheckbox', function () {
         return {
-            template: '<div class="form-group checkbox">\n    <label>\n        <input type="checkbox" ng-model="model"> {{title}}\n    </label>\n</div>',
+            template: '<div class="form-group checkbox">\n    <label>\n        <input type="checkbox" ng-model="model"> {{title}}\n    </label>\n    <span ng-click="removeElement()" class="pull-right glyphicon glyphicon-remove"></span>\n</div>',
             restrict: 'E',
             scope: {
                 model: '=',
                 title: '@'
             },
-            link: function postLink(scope) {
+            link: function postLink(scope, element) {
                 scope.model = true;
+
+                scope.removeElement = function () {
+                    element.remove();
+                }
             }
         };
     });
