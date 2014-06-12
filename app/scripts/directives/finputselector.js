@@ -7,7 +7,7 @@
  * # fInputSelector
  */
 angular.module('fallasApp')
-    .directive('fInputSelector', function ($compile) {
+    .directive('fInputSelector', function ($compile, elements) {
         return {
             template: '<div class="form-group">\n    <label for="select-model">Agregar elemento: </label>\n    <select id="select-model" class="form-control" ng-model="selectedElement"\n            ng-options="element.label for element in elements"\n            ng-change="selectElement()"></select>\n</div>',
             restrict: 'E',
@@ -31,23 +31,9 @@ angular.module('fallasApp')
                     disponibilidad: '<f-checkbox title="{{elementLabels.disponibilidad}}" model="model.disponibilidad"></f-checkbox>'
                 };
 
-                var elementIds = {
-                    entregaPactada: 'FECHA_ENTREGA_PACTADA',
-                    entregaObtenida: 'FECHA_ENTREGA_OBTENIDA',
-                    entregaCompleta: 'ENTREGA_COMPLETA',
-                    entregaCorrecta: 'ENTREGA_CORRECTA',
-                    entregaDefectuosa: 'ENTREGA_DEFECTUOSA',
-                    disponibilidad: 'DISPONIBILIDAD'
-                };
+                var elementIds = elements.id;
 
-                var elementLabels = {
-                    entregaPactada: 'Fecha de entrega pactada',
-                    entregaObtenida: 'Fecha de recibo de entrega',
-                    entregaCompleta: 'Entrega completa',
-                    entregaCorrecta: 'Entrega correcta',
-                    entregaDefectuosa: 'Entrega defectuosa',
-                    disponibilidad: 'Disponibilidad'
-                };
+                var elementLabels = elements.label;
 
                 scope.elements = [
                     {name: elementIds.entregaPactada, type: inputTypes.dateTime, label: elementLabels.entregaPactada, added: false},

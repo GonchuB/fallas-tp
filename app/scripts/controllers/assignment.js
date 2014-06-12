@@ -8,7 +8,7 @@
  * Controller of the fallasApp
  */
 angular.module('fallasApp')
-    .controller('AssignmentCtrl', function ($scope, rule, frame) {
+    .controller('AssignmentCtrl', function ($scope, rule, frame, characteristics) {
 
         function evaluateModel() {
             var rule1 = rule.create('rule', ['age', 'height'], function (specific) {
@@ -37,13 +37,6 @@ angular.module('fallasApp')
 
             $scope.model.correction = frameInstance.evaluate(situation) || 'No frame was matched';
         }
-
-        var characteristics = [
-            'Software',
-            'Hardware',
-            'Insumos',
-            'Packaging'
-        ];
 
         $scope.model = {
             characteristics: characteristics,
