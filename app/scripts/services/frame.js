@@ -8,7 +8,17 @@
  * Factory in the fallasApp.
  */
 angular.module('fallasApp')
-    .factory('frame', function () {
+    .factory('frame', function (rule) {
+
+        var rules = {
+            incompleteSoftware: [
+                rule.definedRules.incompleteSoftware
+            ]
+        };
+
+        var definedFrames = {
+            incompleteSoftware: new Frame('Frame', 'BAD', rules.incompleteSoftware, 'Entrega de software incompleta.')
+        };
 
         function Frame(name, severity, rules, correction) {
 
@@ -33,6 +43,7 @@ angular.module('fallasApp')
 
         }
 
-        return {create: Frame};
+        return {create: Frame, definedFrames: definedFrames};
 
-    });
+    })
+;

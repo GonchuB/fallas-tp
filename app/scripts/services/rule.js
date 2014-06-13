@@ -8,7 +8,13 @@
  * Factory in the fallasApp.
  */
 angular.module('fallasApp')
-    .factory('rule', function () {
+    .factory('rule', function (characteristics) {
+
+        var definedRules = {
+            incompleteSoftware: new Rule('rule', ['entregaCompleta', 'characteristic'], function (specific) {
+                return specific.entregaCompleta === false && specific.characteristic === characteristics[0];
+            })
+        };
 
         function Rule(name, slots, procedure) {
 
@@ -33,6 +39,6 @@ angular.module('fallasApp')
 
         }
 
-        return {create: Rule};
+        return {create: Rule, definedRules: definedRules};
 
     });
