@@ -12,12 +12,14 @@ angular.module('fallasApp')
 
         function Rule(name, slots, procedure) {
 
+            function hasSlots(situation, slots) {
+                return _.every(slots, function (slot) {
+                    return _.has(situation, slot);
+                });
+            }
+
             function evaluate(situation) {
-                if (this.procedure(situation)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return hasSlots(situation, this.slots) && this.procedure(situation);
             }
 
             _.assign(this, {
