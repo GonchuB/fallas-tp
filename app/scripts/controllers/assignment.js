@@ -11,7 +11,7 @@ angular.module('fallasApp')
     .controller('AssignmentCtrl', function ($scope, frame, characteristics) {
 
         function evaluateModel() {
-            $scope.model.correction = frame.definedFrames.incompleteSoftware.evaluate($scope.model.elements) || 'No frame was matched';
+            $scope.model.correction = frame.definedFrames.incompleteSoftware.evaluate($scope.model.elements) || 'No hay corrección para esta situación.';
         }
 
         $scope.model = {
