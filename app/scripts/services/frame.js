@@ -11,14 +11,34 @@ angular.module('fallasApp')
     .factory('frame', function (rule) {
 
         var rules = {
-            incompleteSoftware: [
-                rule.definedRules.incompleteSoftware
+            wrongPackaging: [
+                rule.definedRules.wrongPackaging
+            ],
+            badQualityHardware: [
+                rule.definedRules.badQualityHardware
+            ],
+            officeNoAvailability: [
+                rule.definedRules.officeNoAvailability
+            ],
+            delayedSoftware: [
+                rule.definedRules.delayedSoftware
             ]
         };
 
         var definedFrames = {
-            incompleteSoftware: new Frame('Frame', 'BAD', rules.incompleteSoftware, 'Entrega de software incompleta.')
+            wrongPackaging: new Frame('Proveedor de elementos de packaging con entrega incorrecta', 'MEDIA', rules.wrongPackaging, 'La entrega no satisface las especificaciones técnicas del pedido.'),
+            badQualityHardware: new Frame('Proveedor de hardware con calidad defectuosa', 'GRAVE', rules.badQualityHardware, 'Los items entregados no satisfacen la evaluación técnica del requiriente.'),
+            officeNoAvailability: new Frame('Proveedor de insumos de oficina sin disponibilidad', 'MEDIA', rules.officeNoAvailability, 'El proveedor no posee disponibilidad para satisfacer el pedido.'),
+            delayedSoftware: new Frame('Proveedor de software con entrega atrasada', 'GRAVE', rules.delayedSoftware, 'La entrega se realiza posterior al plazo de entrega.')
         };
+
+        function evaluateFrames(frames, situation) {
+            var result = null;
+            _.forEach(frames, function (one) {
+                result = one.evaluate(situation) || result;
+            });
+            return result;
+        }
 
         function Frame(name, severity, rules, correction) {
 
@@ -27,7 +47,7 @@ angular.module('fallasApp')
                     return rule.evaluate(situation);
                 });
                 if (matchesRules) {
-                    return this.correction;
+                    return _.pick(this, 'name', 'severity', 'correction');
                 }
             }
 
@@ -43,7 +63,7 @@ angular.module('fallasApp')
 
         }
 
-        return {create: Frame, definedFrames: definedFrames};
+        return {create: Frame, definedFrames: definedFrames, evaluateFrames: evaluateFrames};
 
     })
 ;

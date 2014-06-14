@@ -11,8 +11,25 @@ angular.module('fallasApp')
     .factory('rule', function (characteristics) {
 
         var definedRules = {
-            incompleteSoftware: new Rule('rule', ['entregaCompleta', 'characteristic'], function (specific) {
-                return specific.entregaCompleta === false && specific.characteristic === characteristics[0];
+            wrongPackaging: new Rule('rule', ['entregaCorrecta', 'characteristic'], function (specific) {
+                return specific.entregaCorrecta === false && specific.characteristic === characteristics[3];
+            }),
+            badQualityHardware: new Rule('rule', ['entregaDefectuosa', 'characteristic'], function (specific) {
+                return specific.entregaDefectuosa === true && specific.characteristic === characteristics[1];
+            }),
+            officeNoAvailability: new Rule('rule', ['disponibilidad', 'characteristic'], function (specific) {
+                return specific.disponibilidad === false && specific.characteristic === characteristics[2];
+            }),
+            delayedSoftware: new Rule('rule', ['entregaPactada', 'entregaObtenida', 'characteristic'], function (specific) {
+                // Get dates.
+                var exectedDateTime = specific.entregaPactada.date;
+                var receivedDateTime = specific.entregaObtenida.date;
+
+                // Set time of day.
+                exectedDateTime.setHours(specific.entregaPactada.time.getHours(), specific.entregaPactada.time.getMinutes());
+                receivedDateTime.setHours(specific.entregaObtenida.time.getHours(), specific.entregaObtenida.time.getMinutes());
+
+                return receivedDateTime > exectedDateTime && specific.characteristic === characteristics[0];
             })
         };
 

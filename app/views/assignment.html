@@ -44,10 +44,14 @@
 
     <br/>
 
-    <div class="row" ng-show="model.correction.length > 0">
+    <div class="row" ng-show="!model.result">
         <div class="well">
-            {{model.correction}}
+            No hay corrección para esta situación.
         </div>
+    </div>
+
+    <div class="row" ng-show="model.result">
+        <f-evaluate-result result="model.result"></f-evaluate-result>
     </div>
 
 </div>
