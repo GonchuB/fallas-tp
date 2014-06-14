@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name fallasApp.controller:AboutCtrl
+ * @name fallas.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the fallasApp
+ * Controller of the fallas
  */
-angular.module('fallasApp')
+angular.module('fallas')
     .controller('AssignmentCtrl', function ($scope, frame, characteristics) {
 
         function evaluateModel() {
@@ -16,7 +16,6 @@ angular.module('fallasApp')
 
         $scope.model = {
             characteristics: characteristics,
-            correction: '',
             elements: {
                 characteristic: '',
                 entregaPactada: {

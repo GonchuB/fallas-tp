@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name fallasAppApp.characteristics
+ * @name fallas.characteristics
  * @description
  * # characteristics
- * Value in the fallasApp.
+ * Value in the fallas.
  */
-angular.module('fallasApp')
+angular.module('fallas')
     .constant('characteristics', [
         'Software',
         'Hardware',

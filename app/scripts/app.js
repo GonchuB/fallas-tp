@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name fallasApp
+ * @name fallas
  * @description
- * # fallasApp
+ * # fallas
  *
  * Main module of the application.
  */
 angular
-    .module('fallasApp', [
+    .module('fallas', [
         'ngAnimate',
         'ngRoute',
         'ui.bootstrap'
@@ -23,6 +23,10 @@ angular
             .when('/assignment', {
                 templateUrl: 'views/assignment.html',
                 controller: 'AssignmentCtrl'
+            })
+            .when('/examples', {
+              templateUrl: 'views/examples.html',
+              controller: 'ExamplesCtrl'
             })
             .otherwise({
                 redirectTo: '/'

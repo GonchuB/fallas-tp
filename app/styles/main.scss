@@ -121,7 +121,15 @@ span.glyphicon.glyphicon-remove {
   cursor: pointer;
 }
 
-.list-group-item {
-  background-color: transparent;
-  border: 0;
+.jumbotron {
+  .list-group-item {
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.evaluate-example {
+  h4 {
+    font-weight: bold;
+  }
 }

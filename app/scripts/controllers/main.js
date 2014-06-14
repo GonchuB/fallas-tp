@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name fallasApp.controller:MainCtrl
+ * @name fallas.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the fallasApp
+ * Controller of the fallas
  */
-angular.module('fallasApp')
+angular.module('fallas')
     .controller('MainCtrl', function () {
     });

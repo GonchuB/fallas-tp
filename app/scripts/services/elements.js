@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name fallasAppApp.elements
+ * @name fallas.elements
  * @description
  * # elements
- * Value in the fallasApp.
+ * Value in the fallas.
  */
-angular.module('fallasApp')
+angular.module('fallas')
     .constant('elements', {
         id: {
             entregaPactada: 'FECHA_ENTREGA_PACTADA',

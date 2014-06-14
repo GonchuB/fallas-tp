@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name fallasApp.rule
+ * @name fallas.rule
  * @description
  * # rule
- * Factory in the fallasApp.
+ * Factory in the fallas.
  */
-angular.module('fallasApp')
+angular.module('fallas')
     .factory('rule', function (characteristics) {
 
         var definedRules = {
